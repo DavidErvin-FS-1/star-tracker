@@ -41,7 +41,8 @@ const create = async (req, res) => {
 
 // Update an existing resource
 const update = async (req, res) => {
-  // Respond with a single resource and 2xx codeconst { id } = req.params;
+  // Respond with a single resource and 2xx code
+  const { id } = req.params
   try {
     const [updated] = await Planet.update(req.body, {
       where: { id: id }
