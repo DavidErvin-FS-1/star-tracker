@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         through: 'StarsPlanets',
         foreignKey: 'starId'
       })
-      Star.belongsTo(models.Galaxy, { foreignKey: 'galaxyId' })
+      Star.belongsTo(models.Galaxy, { foreignKey: 'id' })
     }
   }
   Star.init(
