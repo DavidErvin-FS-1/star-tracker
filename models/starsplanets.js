@@ -1,7 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
+const galaxy = require('./galaxy')
 module.exports = (sequelize, DataTypes) => {
   class StarsPlanets extends Model {
     /**
@@ -13,12 +12,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  StarsPlanets.init({
-    starId: DataTypes.INTEGER,
-    planetId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'StarsPlanets',
-  });
-  return StarsPlanets;
-};
+  StarsPlanets.init(
+    {
+      starId: DataTypes.INTEGER,
+      planetId: DataTypes.INTEGER
+    },
+    {
+      sequelize,
+      modelName: 'StarsPlanets'
+    }
+  )
+  return StarsPlanets
+}
