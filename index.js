@@ -6,6 +6,16 @@ const app = express()
 
 app.use(express.json())
 
+app.configure(function () {
+  app.set('views', __dirname + '/views')
+  app.set('view engine', 'twig')
+
+  // This section is optional and can be used to configure twig.
+  app.set('twig options', {
+    strict_variables: false
+  })
+})
+
 // Load in our RESTful routers
 const routers = require('./routers/index.js')
 
