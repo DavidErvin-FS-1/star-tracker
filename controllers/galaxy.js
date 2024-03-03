@@ -6,7 +6,12 @@ const index = async (req, res) => {
   // Respond with an array and 2xx status code
   try {
     const galaxies = await Galaxy.findAll()
-    res.status(200).json(galaxies)
+    // res.status(200).json(galaxies)
+    console.log(galaxies)
+    res.status(200).render('views/Galaxy/index.html.twig', {
+      title: 'Galaxies',
+      galaxies: galaxies
+    })
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
@@ -21,7 +26,11 @@ const show = async (req, res) => {
     if (!galaxy) {
       res.status(404).json({ error: 'Galaxy not found' })
     } else {
-      res.status(200).json(galaxy)
+      // res.status(200).json(galaxy)
+      res.status(200).render('views/Galaxy/show.html.twig', {
+        title: `Galaxy: ${galaxy.name}`,
+        galaxy: galaxy
+      })
     }
   } catch (error) {
     res.status(500).json({ error: error.message })
